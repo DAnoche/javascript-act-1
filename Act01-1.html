@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Bootstrap + JavaScript!</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="mainCardRow" class="row mx-2 my-2"></div>
+  </body>
+
+  <script>
+    const data = ["Tomeee", "Yameee hotdog my Tomeeee!!"];
+    const addData = ["I'm a Button", "kyaaaaah!"];
+    const cardRow = document.getElementById("mainCardRow");
+    const addBtn = document.getElementById("addCardButton");
+    const deleteBtn = document.getElementById("deleteCardButton");
+    let newCardStorage = ``;
+    let cardStorage = ``;
+    let addCardStorage = `
+    <div class="card col-2 text-center bg-warning me-2" style="width: 18rem; padding-top:0.7rem;">
+      <img class="card-img-top ji" src="./plus-icon.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${addData[0]}</h5>
+          <p class="card-text">${addData[1]}</p>
+          <a id="addCardButton" href="#" class="btn btn-success w-100">Add Card</a>
+        </div>
+      </div>`;
+    let deleteCardStorage = `
+    <div id="firstCard" class="card col-2 text-center bg-warning me-2" style="width: 18rem; padding-top:0.7rem;">
+      <img class="card-img-top ji" src="./tomeee.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${data[0]}</h5>
+          <p class="card-text">${data[1]}</p>
+          <a id="deleteCardButton" href="#" class="btn btn-danger w-100">Delete Card</a>
+        </div>
+      </div>`;
+
+    for (let i = 0; i <= 0; i++) {
+      cardStorage += deleteCardStorage;
+      cardStorage += addCardStorage;
+    }
+
+    cardRow.innerHTML = cardStorage;
+
+    //Delete
+    const newCard = document.getElementById("firstCard");
+    const currentCard = document.getElementById("deleteCardButton");
+    currentCard.addEventListener("click", () => {
+      newCard.remove();
+    });
+
+    //Add
+    const newcurrentCard = document.getElementById("deleteCardButton");
+    newcurrentCard.addEventListener("click", () => {
+      newCardStorage += addCardStorage;
+    });
+  </script>
+</html>
+
+<!-- class myJavaScriptClass {
+  contructor(data){
+    this.data = data;
+  }
+  //data setter?
+  //data getter?
+  //data something?
+}
+const data = [
+  { title: 'Card Title', description: 'Card Description' }
+];
+const jsClass = new myJavaScriptClass(data);
+// jsClass.render ?
+// jsClass.somethingsomething? -->
